@@ -4,9 +4,10 @@ import java.io.InputStreamReader;
 
 public class TiketPesawat {
 
-    static int counter = 0;
-    static int pil_perjalanan;
-    static String asal,tujuan;
+    static int counter = 0,n = 1,counterP = 0;
+    static int pil_perjalanan,bnykpel,pilpesawat,total_biaya = 0;
+    static String asal,tujuan,tanya_masuk;
+    static boolean nodata = false;
     
 	static String datarute[][] = new String[1][4]; //asal, tujuan, jml penumpang, kelas
 	static String temp_rute[][] = new String[1][4];
@@ -209,10 +210,10 @@ public class TiketPesawat {
         
     }; //keberangkatan, kedatangan, harga
     
-        static String datapbl[][] = new String[1][5]; //nama, tgl_lahir, jenkel, no_telp, email 
-        static String temp_pbl[][] = new String[1][5];
+    static String datapbl[][] = new String[1][5]; //nama, tgl_lahir, jenkel, no_telp, email 
+    static String temp_pbl[][] = new String[1][5];
         
-	static String dataplg[][] = new String[1][3]; //nama, tgl_lahir, jenkel
+	static String dataplg[][] = new String[1][4]; //idex,nama, tgl_lahir, jenkel
 	static String temp_plg[][] = new String[1][3];
 
 	static String datatrk[][] = new String [1][]; //cetak_tiket, cetak_dataplg
@@ -237,7 +238,7 @@ public class TiketPesawat {
             switch(pil_menu){
                 case 1 : //penerbangan
                     
-                    System.out.println("\n=====Pilih Kelas=====");
+                    System.out.println("\n===== Pilih Kelas =====");
                     System.out.println("1. Kelas Ekonomi");
                     System.out.println("2. Kelas Bisnis");
                     System.out.println("3. Kelas Utama");
@@ -248,9 +249,19 @@ public class TiketPesawat {
                     switch(pil_kelas){
                         case 1 : //kelas ekonomi
                             kelasEkonomi();
+                            for (int k = 0; k < dataplg.length; k++) {
+                                dataplg[k][0] = Integer.toString(counter);
+                                System.out.print("Masukkan nama penumpang ke-"+n+" \t\t: ");
+                                dataplg[k][1] = br.readLine();
+                                System.out.print("Masukkan tanggal lahir penumpang ke-"+n+" \t: ");
+                                dataplg[k][2] = br.readLine();
+                                System.out.print("Masukkan Jenis kelamin penumpang ke-"+n+" \t: ");
+                                dataplg[k][3] = br.readLine();
+                                n++;
+                            }
                     		break;
                         case 2 : //kelas bisnis
-                        System.out.println("\n====KELAS BISNIS====");
+                        System.out.println("\n==== KELAS BISNIS ====");
                         System.out.println("1. Satu Perjalanan");
                         System.out.println("2. Pulang Pergi");
                         
@@ -313,10 +324,10 @@ public class TiketPesawat {
 		    System.out.print("Nama Lengkap \t: ");
 		    datapbl[counter][0] = br.readLine();
 		    
-		    System.out.print("Jenis Kelamin \t: ");
-		    datapbl[counter][1] = br.readLine();
-		    
 		    System.out.print("Tanggal Lahir \t: ");
+		    datapbl[counter][1] = br.readLine();
+
+            System.out.print("Jenis Kelamin \t: ");
 		    datapbl[counter][2] = br.readLine();
 		    
 		    System.out.print("Nomor Telepon \t: ");
@@ -334,27 +345,54 @@ public class TiketPesawat {
 	static void kelasEkonomi(){
         try{
 
-	        System.out.println("\n====KELAS EKONOMI====");
+	        System.out.println("\n==== KELAS EKONOMI ====");
 	        System.out.println("1. Satu Perjalanan");
 	        System.out.println("2. Pulang Pergi");
 	    
-	        System.out.println("Pilih Perjalanan : ");
+	        System.out.print("Pilih Perjalanan : ");
 	        pil_perjalanan = Integer.parseInt(br.readLine());
 
 	        switch(pil_perjalanan){
 	            case 1 : //satu perjalanan
+                    System.out.println();
 	                System.out.println("Perjalanan Sekali Jalan");
 	                System.out.println();
 	                System.out.print("Masukkan kota keberangkatan \t: ");
 	                asal = br.readLine();
-	                System.out.print("Masukkan kota tujuan \t: ");
+	                System.out.print("Masukkan kota tujuan \t\t: ");
 	                tujuan = br.readLine();
 	                System.out.println();
+                    n = 1;
 	        		for (int i = 0; i<nama_rute.length; i++) {
-	        			if (nama_rute[i][4].equals("1") && nama_rute[i][1].equalsIgnoreCase(asal) && nama_rute[i][2].equalsIgnoreCase(tujuan)) {
-	        				System.out.println(nama_rute[i][0]+" "+nama_rute[i][1]+" "+nama_rute[i][2]+" Rp "+nama_rute[i][3]);
+	        			if (nama_rute[i][4].equals("1") && nama_rute[i][1].equalsIgnoreCase(asal) && nama_rute[i][2].equalsIgnoreCase(tujuan)) {  
+	        				System.out.println(n+". "+nama_rute[i][0]+" "+nama_rute[i][1]+" - "+nama_rute[i][2]+" Rp "+nama_rute[i][3]);
+                            n++;
 	        			}
 	        		}
+                    System.out.print("Pilih pesawat : ");
+                    pilpesawat = Integer.parseInt(br.readLine());
+                    System.out.println();
+                    switch(pilpesawat){
+                        case 1:
+                            System.out.println("Pilihan anda "+nama_rute[0][0]+" "+nama_rute[0][1]+" - "+nama_rute[0][2]+" "+nama_rute[0][3]);
+                            System.out.print("Masukkan banyak penumpang : ");
+                            bnykpel = Integer.parseInt(br.readLine());
+                            dataplg = new String[bnykpel][3];
+                            total_biaya = (Integer.parseInt(nama_rute[0][3]))*bnykpel;
+                            System.out.println(dataplg.length);
+                            n = 1;
+                            for (int k = 0; k < dataplg.length; k++) {
+                                dataplg[k][0] = Integer.toString(counter);
+                                System.out.print("Masukkan nama penumpang ke-"+n+" \t\t: ");
+                                dataplg[k][1] = br.readLine();
+                                System.out.print("Masukkan tanggal lahir penumpang ke-"+n+" \t: ");
+                                dataplg[k][2] = br.readLine();
+                                System.out.print("Masukkan Jenis kelamin penumpang ke-"+n+" \t: ");
+                                dataplg[k][3] = br.readLine();
+                                n++;
+                            }
+                            break;
+                    }
 	        		break;
 	    
 	            case 2 : //pulang pergi
