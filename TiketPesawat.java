@@ -89,79 +89,128 @@ public class TiketPesawat {
         {"Citilink", "SMG", "SBY", "500000", "2"},
         
         //FIRST CLASS
-        {"Citilink","JKT","SBY","1100000","3"},
-        {"Citilink","DPS","SBY","800000","3"},
-        {"Citilink","SMG","SBY","700000","3"},
+        {"Citilink", "JKT", "SBY", "1100000", "3"},
+        {"Citilink", "DPS", "SBY", "800000", "3"},
+        {"Citilink", "SMG", "SBY", "700000", "3"},
         
         //////LION AIR, SBY/////
         //EKONOMI
-        {"Lion Air","JKT","SBY", "6000000","1"},
-        {"Lion Air","DPS","SBY", "390000","1"},
-        {"Lion Air","SMG","SBY", "350000","1"},
+        {"Lion Air", "JKT", "SBY", "6000000", "1"},
+        {"Lion Air", "DPS", "SBY", "390000", "1"},
+        {"Lion Air", "SMG", "SBY", "350000", "1"},
         
         //BISNIS
-        {"Lion Air","JKT","SBY", "7500000","2"},
-        {"Lion Air","DPS","SBY", "540000","2"},
-        {"Lion Air","SMG","SBY", "500000","2"},
+        {"Lion Air", "JKT", "SBY", "7500000", "2"},
+        {"Lion Air", "DPS", "SBY", "540000", "2"},
+        {"Lion Air", "SMG", "SBY", "500000", "2"},
         
         //FIRST CLASS
-        {"Lion Air","JKT","SBY", "9000000","3"},
-        {"Lion Air","DPS","SBY", "790000","3"},
-        {"Lion Air","SMG","SBY", "650000","3"},
+        {"Lion Air", "JKT", "SBY", "9000000", "3"},
+        {"Lion Air", "DPS", "SBY", "790000", "3"},
+        {"Lion Air", "SMG", "SBY", "650000", "3"},
 
         /////GARUDA, DPS/////
         //EKONOMI
-        {"Garuda Indonesia","JKT","DPS","1100000","1"},
-        {"Garuda Indonesia","SBY","DPS","500000","1"},  
-        {"Garuda Indonesia","SMG","DPS","450000","1"},
+        {"Garuda Indonesia", "JKT", "DPS", "1100000", "1"},
+        {"Garuda Indonesia", "SBY", "DPS", "500000", "1"},  
+        {"Garuda Indonesia", "SMG", "DPS", "450000", "1"},
         
         //BISNIS
-        {"Garuda Indonesia","JKT","DPS","1600000","2"},
-        {"Garuda Indonesia","SBY","DPS","1000000","2"},  
-        {"Garuda Indonesia","SMG","DPS","950000","2"},
+        {"Garuda Indonesia", "JKT", "DPS", "1600000", "2"},
+        {"Garuda Indonesia", "SBY", "DPS", "1000000", "2"},  
+        {"Garuda Indonesia", "SMG", "DPS", "950000", "2"},
         
         //FIRST CLASS
-        {"Garuda Indonesia","JKT","DPS","2100000","3"},
-        {"Garuda Indonesia","SBY","DPS","1500000","3"},  
-        {"Garuda Indonesia","SMG","DPS","1450000","3"},
+        {"Garuda Indonesia", "JKT", "DPS", "2100000", "3"},
+        {"Garuda Indonesia", "SBY", "DPS", "1500000", "3"},  
+        {"Garuda Indonesia", "SMG", "DPS", "1450000", "3"},
         
         /////CITILINK, DPS/////
         //EKONOMI
-        {"Citilink","JKT","DPS","900000"},
-        {"Citilink","SBY","DPS","400000"},
-        {"Citilink","SMG","DPS","450000"},
+        {"Citilink", "JKT", "DPS", "900000", "1"},
+        {"Citilink", "SBY", "DPS", "400000", "1"},
+        {"Citilink", "SMG", "DPS", "450000", "1"},
+        
+        //BISNIS
+        {"Citilink", "JKT", "DPS", "1100000", "2"},
+        {"Citilink", "SBY", "DPS", "600000", "2"},
+        {"Citilink", "SMG", "DPS", "650000", "2"},
+        
+        //FIRST CLASS
+        {"Citilink", "JKT", "DPS", "1300000", "3"},
+        {"Citilink", "SBY", "DPS", "800000", "3"},
+        {"Citilink", "SMG", "DPS", "850000", "3"},
         
         /////LION AIR, DPS/////
         //EKONOMI
-        {"Lion Air","JKT","DPS", "800000"},
-        {"Lion Air","SBY","DPS", "390000"},
-        {"Lion Air","SMG","DPS", "420000"},
+        {"Lion Air", "JKT", "DPS", "800000","1"},
+        {"Lion Air", "SBY", "DPS", "390000","1"},
+        {"Lion Air", "SMG", "DPS", "420000","1"},
+        
+        //BISNIS
+        {"Lion Air", "JKT", "DPS", "950000","2"},
+        {"Lion Air", "SBY", "DPS", "540000","2"},
+        {"Lion Air", "SMG", "DPS", "570000","2"},
+        
+        //FIRST CLASS
+        {"Lion Air", "JKT", "DPS", "1100000","3"},
+        {"Lion Air", "SBY", "DPS", "690000","3"},
+        {"Lion Air", "SMG", "DPS", "720000","3"},
         
         
         //////GARUDA, SMG/////
         //EKONOMI
-        {"Garuda Indonesia","JKT","SMG","900000"},
-        {"Garuda Indonesia","SBY","SMG","800000"},  
-        {"Garuda Indonesia","SMG","SMG", "700000"},
+        {"Garuda Indonesia", "JKT", "SMG", "900000", "1"},
+        {"Garuda Indonesia", "SBY", "SMG", "800000", "1"},  
+        {"Garuda Indonesia", "SMG", "SMG", "700000", "1"},
+        
+        //BISNIS
+        {"Garuda Indonesia", "JKT", "SMG", "1400000", "2"},
+        {"Garuda Indonesia", "SBY", "SMG", "1300000", "2"},  
+        {"Garuda Indonesia", "SMG", "SMG", "1200000", "2"},
+        
+        //FIRST CLASS
+        {"Garuda Indonesia", "JKT", "SMG", "1900000", "3"},
+        {"Garuda Indonesia", "SBY", "SMG", "1800000", "3"},  
+        {"Garuda Indonesia", "SMG", "SMG", "1700000", "3"},
         
         /////CITILINK, SMG/////
         //EKONOMI
-        {"Citilink","JKT","SMG","700000"},
-        {"Citilink","SBY","SMG","500000"},
-        {"Citilink","DPS","SMG","465000"},
+        {"Citilink", "JKT", "SMG", "700000", "1"},
+        {"Citilink", "SBY", "SMG", "500000", "1"},
+        {"Citilink", "DPS", "SMG", "465000", "1"},
+        
+        //BISNIS
+        {"Citilink", "JKT", "SMG", "900000", "2"},
+        {"Citilink", "SBY", "SMG", "700000", "2"},
+        {"Citilink", "DPS", "SMG", "665000", "2"},
+        
+        //FIRST CLASS
+        {"Citilink", "JKT", "SMG", "1100000", "3"},
+        {"Citilink", "SBY", "SMG", "900000", "3"},
+        {"Citilink", "DPS", "SMG", "865000", "3"},
         
         /////LION AIR, SMG/////
         //EKONOMI
-        {"Lion Air","JKT","SMG", "450000"},
-        {"Lion Air","SBY","SMG", "370000"},
-        {"Lion Air","DPS","SMG", "495000"}
-
+        {"Lion Air", "JKT", "SMG", "450000", "1"},
+        {"Lion Air", "SBY", "SMG", "370000", "1"},
+        {"Lion Air", "DPS", "SMG", "495000", "1"},
+        
+        //EKONOMI
+        {"Lion Air", "JKT", "SMG", "600000", "2"},
+        {"Lion Air", "SBY", "SMG", "520000", "2"},
+        {"Lion Air", "DPS", "SMG", "645000", "2"},
+        
+        //EKONOMI
+        {"Lion Air", "JKT", "SMG", "750000", "3"},
+        {"Lion Air", "SBY", "SMG", "670000", "3"},
+        {"Lion Air", "DPS", "SMG", "795000", "3"}
 
         
     }; //keberangkatan, kedatangan, harga
-        
-    static String datapbl[][] = new String[1][5]; //nama, tgl_lahir, jenkel, no_telp, email 
-    static String temp_pbl[][] = new String[1][5];
+    
+        static String datapbl[][] = new String[1][5]; //nama, tgl_lahir, jenkel, no_telp, email 
+        static String temp_pbl[][] = new String[1][5];
         
 	static String dataplg[][] = new String[1][3]; //nama, tgl_lahir, jenkel
 	static String temp_plg[][] = new String[1][3];
