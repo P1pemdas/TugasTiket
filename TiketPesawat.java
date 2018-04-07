@@ -4,7 +4,8 @@ import java.io.InputStreamReader;
 
 public class TiketPesawat {
 
-        static int counter = 0;
+    static int counter = 0;
+    static int pil_perjalanan;
     
 	static String datarute[][] = new String[1][4]; //asal, tujuan, jml penumpang, kelas
 	static String temp_rute[][] = new String[1][4];
@@ -90,30 +91,11 @@ public class TiketPesawat {
 
 	public static void main(String[] args) throws IOException {
             
-            
         do{
-        	System.out.println();
-            System.out.println("=====SELAMAT DATANG=====");
-            System.out.println();
-            System.out.println("**Isi data pembeli");
-            
-            System.out.print("Nama Lengkap \t: ");
-            datapbl[counter][0] = br.readLine();
-            
-            System.out.print("Jenis Kelamin \t: ");
-            datapbl[counter][1] = br.readLine();
-            
-            System.out.print("Tanggal Lahir \t: ");
-            datapbl[counter][2] = br.readLine();
-            
-            System.out.print("Nomor Telepon \t: ");
-            datapbl[counter][3] = br.readLine();
-            
-            System.out.print("E-mail \t: ");
-            datapbl[counter][4] = br.readLine();
+        	input_dataPembeli(); //Function untuk input data pembeli
                     
             
-			System.out.println("\n\n>>>>Menu Utama<<<<");
+			System.out.println("\n\n>>>> Menu Utama <<<<");
 			System.out.println("1. Penerbangan");
 			System.out.println("2. Tampil History Pembelian");
 			System.out.println("3. Exit");
@@ -134,25 +116,7 @@ public class TiketPesawat {
                     
                     switch(pil_kelas){
                         case 1 : //kelas ekonomi
-                            System.out.println("\n====KELAS EKONOMI====");
-                            System.out.println("1. Satu Perjalanan");
-                            System.out.println("2. Pulang Pergi");
-                        
-                            System.out.println("Pilih Perjalanan : ");
-                            int pil_perjalanan = Integer.parseInt(br.readLine());
-                    
-                            switch(pil_perjalanan){
-                                case 1 : //satu perjalanan
-                                    System.out.println("Perjalanan Sekali Jalan");
-                                    System.out.println("Pilih Keberangkatan");
-                            
-                                    System.out.println("Pilih Kedatangan");
-                            		break;
-                        
-                                case 2 : //pulang pergi
-                                    System.out.println("Perjalanan Pulang Pergi");
-                            		break;
-                    		}
+                            kelasEkonomi();
                     		break;
                         case 2 : //kelas bisnis
                         System.out.println("\n====KELAS BISNIS====");
@@ -208,13 +172,61 @@ public class TiketPesawat {
             
 	}
 
-	// static void inputrute(){
+	static String[][] input_dataPembeli(){
+		try{
+			System.out.println();
+		    System.out.println("===== SELAMAT DATANG =====");
+		    System.out.println();
+		    System.out.println("Lengkapi data pembeli*");
+		    
+		    System.out.print("Nama Lengkap \t: ");
+		    datapbl[counter][0] = br.readLine();
+		    
+		    System.out.print("Jenis Kelamin \t: ");
+		    datapbl[counter][1] = br.readLine();
+		    
+		    System.out.print("Tanggal Lahir \t: ");
+		    datapbl[counter][2] = br.readLine();
+		    
+		    System.out.print("Nomor Telepon \t: ");
+		    datapbl[counter][3] = br.readLine();
+		    
+		    System.out.print("E-mail \t\t: ");
+		    datapbl[counter][4] = br.readLine();
+		}catch(Exception e){
 
-	// }
+		}
 
-	// static void transaksi(){
+		return datapbl;
+	}
 
-	// }
+	static void kelasEkonomi(){
+        try{
+
+	        System.out.println("\n====KELAS EKONOMI====");
+	        System.out.println("1. Satu Perjalanan");
+	        System.out.println("2. Pulang Pergi");
+	    
+	        System.out.println("Pilih Perjalanan : ");
+	        pil_perjalanan = Integer.parseInt(br.readLine());
+
+	        switch(pil_perjalanan){
+	            case 1 : //satu perjalanan
+	                System.out.println("Perjalanan Sekali Jalan");
+	                System.out.println("Pilih Keberangkatan");
+	        		
+	                System.out.println("Pilih Kedatangan");
+	        		break;
+	    
+	            case 2 : //pulang pergi
+	                System.out.println("Perjalanan Pulang Pergi");
+	        		break;
+			}
+
+        }catch(Exception e){
+
+        }
+	}
 
 	// static void exit(){
 		
