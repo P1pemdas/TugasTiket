@@ -1,6 +1,6 @@
 //KKKKKK
 //SUs mau gak
-
+//nyambek 17
 public class TiketPesawat {
 	public static void main(String[] args) {
 		// do{
