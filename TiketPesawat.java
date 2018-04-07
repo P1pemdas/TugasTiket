@@ -6,6 +6,7 @@ public class TiketPesawat {
 
     static int counter = 0;
     static int pil_perjalanan;
+    static String asal,tujuan;
     
 	static String datarute[][] = new String[1][4]; //asal, tujuan, jml penumpang, kelas
 	static String temp_rute[][] = new String[1][4];
@@ -219,7 +220,7 @@ public class TiketPesawat {
                                 System.out.println("Perjalanan Pulang Pergi");
                         		break;
                 		}
-                        break;
+                        	break;
                         case 3 : //first class
                         System.out.println("\n====KELAS UTAMA====");
                         System.out.println("1. Satu Perjalanan");
@@ -294,9 +295,17 @@ public class TiketPesawat {
 	        switch(pil_perjalanan){
 	            case 1 : //satu perjalanan
 	                System.out.println("Perjalanan Sekali Jalan");
-	                System.out.println("Pilih Keberangkatan");
-	        		
-	                System.out.println("Pilih Kedatangan");
+	                System.out.println();
+	                System.out.print("Masukkan kota keberangkatan \t: ");
+	                asal = br.readLine();
+	                System.out.print("Masukkan kota tujuan \t: ");
+	                tujuan = br.readLine();
+	                System.out.println();
+	        		for (int i = 0; i<nama_rute.length; i++) {
+	        			if (nama_rute[i][4].equals("1") && nama_rute[i][1].equalsIgnoreCase(asal) && nama_rute[i][2].equalsIgnoreCase(tujuan)) {
+	        				System.out.println(nama_rute[i][0]+" "+nama_rute[i][1]+" "+nama_rute[i][2]+" Rp "+nama_rute[i][3]);
+	        			}
+	        		}
 	        		break;
 	    
 	            case 2 : //pulang pergi
