@@ -1,7 +1,11 @@
 //KKKKKK
 //SUs mau gak
-//Coba punya della
+<<<<<<< HEAD
+//Coba punya della yaaaaa
 
+=======
+//nyambek 17
+>>>>>>> 751b960ab3d381534a89b0d2a8f32369adad7b06
 public class TiketPesawat {
 	public static void main(String[] args) {
 		// do{
