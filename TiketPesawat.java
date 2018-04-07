@@ -1,4 +1,5 @@
-//KKKKKKk
+//KKKKKK
+//SUs mau gak
 
 public class TiketPesawat {
 	public static void main(String[] args) {
