@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+=======
+>>>>>>> 8c6b649b3f0721158ce8a54e6cb803b5f7451f38
 public class TiketPesawat {
 
 	static int datarute[][] = new int[1][4]; //asal, tujuan, jml penumpang, kelas
@@ -19,6 +22,7 @@ public class TiketPesawat {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 
 
 		do{
@@ -29,5 +33,31 @@ public class TiketPesawat {
 
 
 		}while(true);
+=======
+		do{
+			System.out.println("Menu Utama");
+			System.out.println("1. Input Rute");
+			System.out.println("2. Transaksi");
+			System.out.println("3. Tampil History Pembelian");
+			System.out.println("4. Exit");
+			System.out.println("4. Exisaaasfsa");
+		}while(true);
+	}
+
+	static void input(){
+
+	}
+
+	static void transaksi(){
+
+	}
+
+	static void history(){
+
+	}
+
+	static void exit(){
+		
+>>>>>>> 8c6b649b3f0721158ce8a54e6cb803b5f7451f38
 	}
 }
