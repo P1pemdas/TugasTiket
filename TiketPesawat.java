@@ -14,6 +14,7 @@ public class TiketPesawat {
 			System.out.println("2. Transaksi");
 			System.out.println("3. Tampil History Pembelian");
 			System.out.println("4. Exit");
+			System.out.println("4. Exisaaasfsa");
 		// }while(true);
 	}
 }
