@@ -1,5 +1,6 @@
 //KKKKKK
 //SUs mau gak
+//Coba punya della
 
 public class TiketPesawat {
 	public static void main(String[] args) {
