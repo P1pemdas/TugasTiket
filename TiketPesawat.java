@@ -205,7 +205,7 @@ public class TiketPesawat {
     static int counter = 0,n = 1,counterP = 0;
     static int pil_perjalanan, bnykpel, pilpesawat, total_biaya = 0;
     static String asal, tujuan, tanya_masuk;
-    static boolean nodata = false;
+    static boolean nodata = false,pp = false;
     
     static String datarute[][] = new String[1][4]; //asal, tujuan, jml penumpang, kelas
     static String temp_rute[][] = new String[999][6];
@@ -250,9 +250,6 @@ public class TiketPesawat {
                         case 1 : //kelas ekonomi
                             kelasEkonomi();
                             tambahPenumpang();
-                            for (int v = 0; v<dataplg.length; v++) {
-                                System.out.println(dataplg[v][1]+" "+dataplg[v][2]);
-                            }
                     		break;
                         case 2 : //kelas bisnis
                             kelasBisnis();
@@ -264,7 +261,7 @@ public class TiketPesawat {
                     break;
                             
 				case 2 : //Tampil history transaksi
-                            
+                    riwayatTransaksi();
                 	break;
                 case 3 : //Keluar
                     keluar();
@@ -396,11 +393,22 @@ public class TiketPesawat {
                             System.out.println();
                             break;
                     }
+                    pp = true;
                     break;
             
                 case 2 : //pulang pergi
                     System.out.println();
                     System.out.println("Perjalanan Pulang Pergi");
+                    System.out.println();
+                    System.out.println("Surabaya \t || SBY");
+                    System.out.println("Jakarta \t || JKT");
+                    System.out.println("Semarang \t || SMG");
+                    System.out.println("Denpasar \t || DPS");
+
+                    System.out.print("Masukkan kota keberangkatan \t: ");
+                    asal = br.readLine();
+                    System.out.print("Masukkan kota tujuan \t\t: ");
+                    tujuan = br.readLine();
                     System.out.println();
                     break;
             }
@@ -514,6 +522,38 @@ public class TiketPesawat {
             }
         }catch(Exception e){
 
+        }
+    }
+
+    static void riwayatTransaksi(){
+        if (pp == true) {
+            System.out.println();
+            System.out.println();
+            System.out.println("-- Riwayat Transaksi "+datapbl[counter][0]+" ---------------------");
+            System.out.println("Nama Pembeli \t\t: "+datapbl[counter][0]);
+            System.out.println("Tanggal Lahir Pembeli \t: "+datapbl[counter][1]);
+            System.out.println("Jenis Kelamin Pembeli \t: "+datapbl[counter][2]);
+            System.out.println("Nomor Telepon Pembeli \t: "+datapbl[counter][3]);
+            System.out.println("---------------------");
+            System.out.println("Maskapai \t:"+databooking[counter][0]);
+            System.out.println("Asal \t\t:"+databooking[counter][1]);
+            System.out.println("Tujuan \t\t:"+databooking[counter][2]);
+            System.out.println("Kelas \t\t:"+databooking[counter][4]);
+            System.out.println("Harga \t\t: Rp "+databooking[counter][3]+" per orang");
+            System.out.println();
+            n = 1;
+            for (int c = 0; c <dataplg.length ; c++) {
+                System.out.println("-- Penumpang "+n+" -------");
+                System.out.println("Nama penumpang \t\t: "+dataplg[c][1]);
+                System.out.println("Tanggal lahir penumpang : "+dataplg[c][2]);
+                System.out.println("Jenis kelamin penumpang : "+dataplg[c][3]);
+                n++;
+            }
+            System.out.println();
+            System.out.println("Total Biaya : Rp "+total_biaya);
+            System.out.println("---------------------------------------------------");
+        }else if(pp == false){
+            
         }
     }
 
