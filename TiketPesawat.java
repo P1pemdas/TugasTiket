@@ -538,7 +538,7 @@ public class TiketPesawat {
         //return bnykpel;
 	}
 
-    static void kelasUtama(){
+    static int kelasUtama(){
         try{
 
 	    System.out.println("\n==== KELAS EKONOMI ====");
