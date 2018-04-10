@@ -202,9 +202,9 @@ public class TiketPesawat {
         
     }; //keberangkatan, kedatangan, harga
 
-    static int counter = 0,n = 1,counterP = 0;
+    static int counter = 0,n = 1;
     static int pil_perjalanan, bnykpel, pilpesawat, total_biaya = 0;
-    static String asal, tujuan, tanya_masuk;
+    static String asal, tujuan, tanya_masuk,tanggalplng,tanggalbrngkt;
     static boolean nodata = false,pp = false;
     
     static String datarute[][] = new String[1][4]; //asal, tujuan, jml penumpang, kelas
@@ -216,7 +216,7 @@ public class TiketPesawat {
 	static String dataplg[][] = new String[1][4]; //idex, nama, tgl_lahir, jenkel
 	static String temp_plg[][] = new String[1][3];
 
-	static String databooking[][] = new String [1][7]; //kode, nama_pesawat, asal, tujuan, harga, kelas, totalBiaya
+	static String databooking[][] = new String [1][9]; //kode, nama_pesawat, asal, tujuan, harga, kelas, totalBiaya,tgl pergi,tgl pulang
 	static String temp_trk[][] = new String[1][];
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -275,11 +275,10 @@ public class TiketPesawat {
             
 	}
 
-
     //function untuk input data pembeli
 	static String[][] input_dataPembeli(){
 		try{
-                    System.out.println();
+            System.out.println();
 		    System.out.println("========== SELAMAT DATANG ==========");
 		    System.out.println();
 		    System.out.println("Data Pembeli");
@@ -295,7 +294,7 @@ public class TiketPesawat {
 		    
 		    System.out.print("Nomor Telepon \t\t: ");
 		    datapbl[counter][3] = br.readLine();
-		    
+
 		    System.out.print("E-mail \t\t\t: ");
 		    datapbl[counter][4] = br.readLine();
 		}catch(Exception e){
@@ -308,6 +307,7 @@ public class TiketPesawat {
     //Function untuk kelas ekonomi
 	static int kelasEkonomi(){
         try{
+        int sem;
 
 	    System.out.println("\n==== KELAS EKONOMI ====");
             System.out.println("1. Satu Perjalanan");
@@ -330,9 +330,11 @@ public class TiketPesawat {
                     asal = br.readLine();
                     System.out.print("Masukkan kota tujuan \t\t: ");
                     tujuan = br.readLine();
+                    System.out.print("Masukkan tanggal keberangkatan \t: ");
+                    tanggalbrngkt = br.readLine();
                     System.out.println();
                     n = 1;
-                    int sem = 0;
+                    sem = 0;
                     for (int i = 0; i<nama_rute.length; i++) {
                         if (nama_rute[i][4].equals("1") && nama_rute[i][1].equalsIgnoreCase(asal) && nama_rute[i][2].equalsIgnoreCase(tujuan)) {  
                             System.out.println(n+". "+nama_rute[i][0]+" "+nama_rute[i][1]+" - "+nama_rute[i][2]+" Rp "+nama_rute[i][3]);
@@ -362,6 +364,7 @@ public class TiketPesawat {
                             databooking[counter][4] = temp_rute[0][4];
                             databooking[counter][5] = Integer.toString(total_biaya);
                             databooking[counter][6] = Integer.toString(counter);
+                            databooking[counter][7] = tanggalbrngkt;
                             System.out.println();
                             break;
                         case 2:
@@ -377,6 +380,7 @@ public class TiketPesawat {
                             databooking[counter][4] = temp_rute[1][4];
                             databooking[counter][5] = Integer.toString(total_biaya);
                             databooking[counter][6] = Integer.toString(counter);
+                            databooking[counter][7] = tanggalbrngkt;
                             System.out.println();
                             break;
                         case 3:
@@ -392,6 +396,7 @@ public class TiketPesawat {
                             databooking[counter][4] = temp_rute[2][4];
                             databooking[counter][5] = Integer.toString(total_biaya);
                             databooking[counter][6] = Integer.toString(counter);
+                            databooking[counter][7] = tanggalbrngkt;
                             System.out.println();
                             break;
                     }
@@ -411,7 +416,82 @@ public class TiketPesawat {
                     asal = br.readLine();
                     System.out.print("Masukkan Kota Tujuan \t\t: ");
                     tujuan = br.readLine();
+                    System.out.print("Masukkan tanggal keberangkatan \t: ");
+                    tanggalbrngkt = br.readLine();
+                    System.out.print("Masukkan tanggal Pulang \t: ");
+                    tanggalplng = br.readLine();
                     System.out.println();
+                    n = 1;
+                    sem = 0;
+                    for (int i = 0; i<nama_rute.length; i++) {
+                        if (nama_rute[i][4].equals("1") && nama_rute[i][1].equalsIgnoreCase(asal) && nama_rute[i][2].equalsIgnoreCase(tujuan)) {  
+                            System.out.println(n+". "+nama_rute[i][0]+" "+nama_rute[i][1]+" - "+nama_rute[i][2]+" Rp "+nama_rute[i][3]);
+                            temp_rute[sem][0] = nama_rute[i][0];
+                            temp_rute[sem][1] = nama_rute[i][1];
+                            temp_rute[sem][2] = nama_rute[i][2];
+                            temp_rute[sem][3] = nama_rute[i][3];
+                            temp_rute[sem][4] = nama_rute[i][4];
+                            n++;
+                            sem++;
+                        }
+                    }
+                    System.out.print("Pilih pesawat : ");
+                    pilpesawat = Integer.parseInt(br.readLine());
+                    System.out.println();
+                    switch(pilpesawat){
+                        case 1:
+                            System.out.println("Pilihan anda "+temp_rute[0][0]+" "+temp_rute[0][1]+" - "+temp_rute[0][2]+" "+temp_rute[0][3]);
+                            System.out.print("Masukkan banyak penumpang : ");
+                            bnykpel = Integer.parseInt(br.readLine());
+                            dataplg = new String[bnykpel][4];
+                            total_biaya = ((Integer.parseInt(temp_rute[0][3]))*bnykpel)*2;
+                            databooking[counter][0] = temp_rute[0][0];
+                            databooking[counter][1] = temp_rute[0][1];
+                            databooking[counter][2] = temp_rute[0][2];
+                            databooking[counter][3] = temp_rute[0][3];
+                            databooking[counter][4] = temp_rute[0][4];
+                            databooking[counter][5] = Integer.toString(total_biaya);
+                            databooking[counter][6] = Integer.toString(counter);
+                            databooking[counter][7] = tanggalbrngkt;
+                            databooking[counter][8] = tanggalplng;
+                            System.out.println();
+                            break;
+                        case 2:
+                            System.out.println("Pilihan anda "+temp_rute[1][0]+" "+temp_rute[1][1]+" - "+temp_rute[1][2]+" "+temp_rute[1][3]);
+                            System.out.print("Masukkan banyak penumpang : ");
+                            bnykpel = Integer.parseInt(br.readLine());
+                            dataplg = new String[bnykpel][4];
+                            total_biaya = ((Integer.parseInt(temp_rute[1][3]))*bnykpel)*2;
+                            databooking[counter][0] = temp_rute[1][0];
+                            databooking[counter][1] = temp_rute[1][1];
+                            databooking[counter][2] = temp_rute[1][2];
+                            databooking[counter][3] = temp_rute[1][3];
+                            databooking[counter][4] = temp_rute[1][4];
+                            databooking[counter][5] = Integer.toString(total_biaya);
+                            databooking[counter][6] = Integer.toString(counter);
+                            databooking[counter][7] = tanggalbrngkt;
+                            databooking[counter][8] = tanggalplng;
+                            System.out.println();
+                            break;
+                        case 3:
+                            System.out.println("Pilihan anda "+temp_rute[2][0]+" "+temp_rute[2][1]+" - "+temp_rute[2][2]+" "+temp_rute[2][3]);
+                            System.out.print("Masukkan banyak penumpang : ");
+                            bnykpel = Integer.parseInt(br.readLine());
+                            dataplg = new String[bnykpel][4];
+                            total_biaya = ((Integer.parseInt(temp_rute[2][3]))*bnykpel)*2;
+                            databooking[counter][0] = temp_rute[2][0];
+                            databooking[counter][1] = temp_rute[2][1];
+                            databooking[counter][2] = temp_rute[2][2];
+                            databooking[counter][3] = temp_rute[2][3];
+                            databooking[counter][4] = temp_rute[2][4];
+                            databooking[counter][5] = Integer.toString(total_biaya);
+                            databooking[counter][6] = Integer.toString(counter);
+                            databooking[counter][7] = tanggalbrngkt;
+                            databooking[counter][8] = tanggalplng;
+                            System.out.println();
+                            break;
+                    }
+                    pp = false;
                     break;
             }
 
@@ -422,7 +502,7 @@ public class TiketPesawat {
         return bnykpel;
 	}
 
-    static void kelasBisnis(){
+    static int kelasBisnis(){
         try{
 
 	    System.out.println("\n==== KELAS BISNIS ====");
@@ -446,6 +526,9 @@ public class TiketPesawat {
                     asal = br.readLine();
                     System.out.print("Masukkan kota tujuan \t\t: ");
                     tujuan = br.readLine();
+                    System.out.print("Masukkan tanggal keberangkatan \t: ");
+                    tanggalbrngkt = br.readLine();
+
                     System.out.println();
                     n = 1;
                     int sem = 0;
@@ -478,6 +561,7 @@ public class TiketPesawat {
                             databooking[counter][4] = temp_rute[0][4];
                             databooking[counter][5] = Integer.toString(total_biaya);
                             databooking[counter][6] = Integer.toString(counter);
+                            databooking[counter][7] = tanggalbrngkt;
                             System.out.println();
                             break;
                         case 2:
@@ -493,6 +577,7 @@ public class TiketPesawat {
                             databooking[counter][4] = temp_rute[1][4];
                             databooking[counter][5] = Integer.toString(total_biaya);
                             databooking[counter][6] = Integer.toString(counter);
+                            databooking[counter][7] = tanggalbrngkt;
                             System.out.println();
                             break;
                         case 3:
@@ -508,6 +593,7 @@ public class TiketPesawat {
                             databooking[counter][4] = temp_rute[2][4];
                             databooking[counter][5] = Integer.toString(total_biaya);
                             databooking[counter][6] = Integer.toString(counter);
+                            databooking[counter][7] = tanggalbrngkt;
                             System.out.println();
                             break;
                     }
@@ -535,7 +621,7 @@ public class TiketPesawat {
 
         }
 
-        //return bnykpel;
+        return bnykpel;
 	}
 
     static int kelasUtama(){
@@ -562,6 +648,8 @@ public class TiketPesawat {
                     asal = br.readLine();
                     System.out.print("Masukkan kota tujuan \t\t: ");
                     tujuan = br.readLine();
+                    System.out.print("Masukkan tanggal keberangkatan \t: ");
+                    tanggalbrngkt = br.readLine();
                     System.out.println();
                     n = 1;
                     int sem = 0;
@@ -594,6 +682,7 @@ public class TiketPesawat {
                             databooking[counter][4] = temp_rute[0][4];
                             databooking[counter][5] = Integer.toString(total_biaya);
                             databooking[counter][6] = Integer.toString(counter);
+                            databooking[counter][7] = tanggalbrngkt;
                             System.out.println();
                             break;
                         case 2:
@@ -609,6 +698,7 @@ public class TiketPesawat {
                             databooking[counter][4] = temp_rute[1][4];
                             databooking[counter][5] = Integer.toString(total_biaya);
                             databooking[counter][6] = Integer.toString(counter);
+                            databooking[counter][7] = tanggalbrngkt;
                             System.out.println();
                             break;
                         case 3:
@@ -624,6 +714,7 @@ public class TiketPesawat {
                             databooking[counter][4] = temp_rute[2][4];
                             databooking[counter][5] = Integer.toString(total_biaya);
                             databooking[counter][6] = Integer.toString(counter);
+                            databooking[counter][7] = tanggalbrngkt;
                             System.out.println();
                             break;
                     }
@@ -684,7 +775,6 @@ public class TiketPesawat {
                             System.out.print("Jenis kelamin penumpang ke-"+n+" \t: ");
                             dataplg[j][3] = br.readLine();
                         }
-                        counterP++;
                         n++;
                     }
                 }
@@ -717,10 +807,12 @@ public class TiketPesawat {
             System.out.println("Tanggal Lahir Pembeli \t: "+datapbl[counter][1]);
             System.out.println("Jenis Kelamin Pembeli \t: "+datapbl[counter][2]);
             System.out.println("Nomor Telepon Pembeli \t: "+datapbl[counter][3]);
-            System.out.println("---------------------");
-            System.out.println("Maskapai \t: "+databooking[counter][0]);
+            System.out.println("----- Pergi ---------------");
+            System.out.println("Tanggal \t: "+databooking[counter][7]);
             System.out.println("Asal \t\t: "+databooking[counter][1]);
             System.out.println("Tujuan \t\t: "+databooking[counter][2]);
+            System.out.println("-------------");
+            System.out.println("Maskapai \t: "+databooking[counter][0]);
             System.out.println("Kelas \t\t: "+databooking[counter][4]);
             System.out.println("Harga \t\t: Rp "+databooking[counter][3]+" per-orang");
             System.out.println();
@@ -736,7 +828,37 @@ public class TiketPesawat {
             System.out.println("Total Biaya : Rp "+total_biaya);
             System.out.println("---------------------------------------------------");
         }else if(pp == false){
-            
+            System.out.println();
+            System.out.println();
+            System.out.println("-- Riwayat Transaksi "+datapbl[counter][0]+" ---------------------");
+            System.out.println("Nama Pembeli \t\t: "+datapbl[counter][0]);
+            System.out.println("Tanggal Lahir Pembeli \t: "+datapbl[counter][1]);
+            System.out.println("Jenis Kelamin Pembeli \t: "+datapbl[counter][2]);
+            System.out.println("Nomor Telepon Pembeli \t: "+datapbl[counter][3]);
+            System.out.println("----- Pergi ---------------");
+            System.out.println("Tanggal \t: "+databooking[counter][7]);
+            System.out.println("Asal \t\t: "+databooking[counter][1]);
+            System.out.println("Tujuan \t\t: "+databooking[counter][2]);
+            System.out.println("----- Pulang --------------");
+            System.out.println("Tanggal \t: "+databooking[counter][8]);
+            System.out.println("Asal \t\t: "+databooking[counter][2]);
+            System.out.println("Tujuan \t\t: "+databooking[counter][1]);
+            System.out.println("-------------");
+            System.out.println("Maskapai \t: "+databooking[counter][0]);
+            System.out.println("Kelas \t\t: "+databooking[counter][4]);
+            System.out.println("Harga \t\t: Rp "+(databooking[counter][3])+" per-orang sekali perjalanan");
+            System.out.println();
+            n = 1;
+            for (int c = 0; c <dataplg.length ; c++) {
+                System.out.println("-- Penumpang "+n+" -------");
+                System.out.println("Nama penumpang \t\t: "+dataplg[c][1]);
+                System.out.println("Tanggal lahir penumpang : "+dataplg[c][2]);
+                System.out.println("Jenis kelamin penumpang : "+dataplg[c][3]);
+                n++;
+            }
+            System.out.println();
+            System.out.println("Total Biaya : Rp "+total_biaya);
+            System.out.println("---------------------------------------------------");
         }
     }
 
